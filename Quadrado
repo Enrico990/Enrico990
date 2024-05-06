@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int ladoQuadrado;
+  char tipoQuadrado;
+
+  printf("Digite o tamanho do lado do quadrado: ");
+  scanf("%d", &ladoQuadrado);
+
+  if (ladoQuadrado <= 0) {
+    printf("O lado do quadrado deve ser um número positivo.\n");
+    return 1;
+  }
+
+  printf("Digite o tipo de quadrado(c, b, p, s, h, v): ");
+  scanf(" %c", &tipoQuadrado);
+  switch (tipoQuadrado) {
+    // Caso 'c': desenha um quadrado preenchido
+    case 'c':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          printf("* ");
+        }
+        printf("\n");
+      }
+      break;
+    // Caso 'b': desenha um quadrado com bordas
+    case 'b':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          if (i == 0 || i == ladoQuadrado - 1 || j == 0 ||
+              j == ladoQuadrado - 1) {
+            printf("* ");
+          } else {
+            printf("  ");
+          }
+        }
+        printf("\n");
+      }
+      break;
+    // Caso 'p': desenha um quadrado com bordas e diagonal
+    case 'p':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          if (i == 0 || i == ladoQuadrado - 1 || j == 0 ||
+              j == ladoQuadrado - 1 || i == j) {
+            printf("* ");
+          } else {
+            printf("  ");
+          }
+        }
+        printf("\n");
+      }
+      break;
+    // Caso 's': desenha um quadrado com bordas e diagonal invertida
+    case 's':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          if (i == 0 || i == ladoQuadrado - 1 || j == 0 ||
+              j == ladoQuadrado - 1 || j == ladoQuadrado - i - 1) {
+            printf("* ");
+          } else {
+            printf("  ");
+          }
+        }
+        printf("\n");
+      }
+      break;
+    // Caso 'h': desenha um quadrado com bordas e uma linha horizontal no centro
+    case 'h':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          if (i == 0 || i == ladoQuadrado - 1 || j == 0 ||
+              j == ladoQuadrado - 1 || j== ladoQuadrado/2) {
+            printf("* ");
+          } else {
+            printf("  ");
+          }
+        }
+        printf("\n");
+      }
+      break;
+    // Caso 'v': desenha um quadrado com bordas e uma linha vertical no centro
+    case 'v':
+      for (int i = 0; i < ladoQuadrado; i++) {
+        for (int j = 0; j < ladoQuadrado; j++) {
+          if (i == 0 || i == ladoQuadrado - 1 || j == 0 ||
+              j == ladoQuadrado - 1 || i== ladoQuadrado/2) {
+            printf("* ");
+          } else {
+            printf("  ");
+          }
+        }
+        printf("\n");
+      }
+      break;
+    default:
+      printf("Tipo invalido.\n");
+      break;
+  }
+}
