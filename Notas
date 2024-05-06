@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int nota;
+
+    // Solicita ao usuário para digitar a nota do aluno
+    printf("Digite a nota do aluno (entre 0 e 100): ");
+    scanf("%d", &nota);
+
+    // Verifica se a nota é maior ou igual a 70 e imprime 'S' ou 'N'
+    printf("%c\n", 'N' + ('S' - 'N') * (nota >= 70));
+
+    // Verifica se a nota está entre 50 e 69 e imprime 'S' ou 'N'
+    printf("%c\n", 'N' + ('S' - 'N') * (nota >= 50 && nota < 70));
+
+    // Verifica se a nota é menor que 50 e imprime 'S' ou 'N'
+    printf("%c\n", 'N' + ('S' - 'N') * (nota < 50));
+
+    return 0;
+}
