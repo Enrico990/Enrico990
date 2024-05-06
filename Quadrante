@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+    float angulo;
+    int voltas;
+    int direcao;  
+
+    // Solicita ao usuário para digitar o ângulo em graus
+    printf("Digite o ângulo (em graus): ");
+    scanf("%f", &angulo);
+
+    // Calcula o número de voltas completas
+    voltas = (int)(angulo / 360);
+    angulo -= voltas * 360;
+
+    // Verifica se o ângulo é negativo e ajusta
+    if (angulo < 0) {
+        angulo += 360;
+        voltas++;
+    }
+
+    // Define a direção das voltas (horário ou anti-horário)
+    direcao = voltas >= 0 ? 1 : -1; 
+
+    // Verifica em qual quadrante o ângulo se encontra
+    if (angulo == 0 || angulo == 180 || angulo == 360) {
+        printf("Este ângulo está em um dos eixos.\n");
+    } else if (angulo > 0 && angulo < 90) {
+        printf("Primeiro quadrante\n");
+    } else if (angulo >= 90 && angulo < 180) {
+        printf("Segundo quadrante\n");
+    } else if (angulo >= 180 && angulo < 270) {
+        printf("Terceiro quadrante\n");
+    } else if (angulo >= 270 && angulo < 360) {
+        printf("Quarto quadrante\n");
+    }
+
+    // Exibe o número de voltas e a direção
+    printf("%d volta(s) sentido ", abs(voltas));
+    if (direcao == 1) {
+        printf("anti-horário\n");
+    } else {
+        printf("horário\n");
+    }
+
+    // Calcula o número de graus faltantes para completar uma volta
+    float graus_faltantes = 360 - angulo;
+    printf("Faltam %.0f graus (sentido anti-horário) para completar 1 volta(s)\n", graus_faltantes);
+
+    return 0;
+}
